@@ -1,6 +1,6 @@
 /**
- * g++ t_shirt.cpp -o bin/baju
- * bin/baju.exe catatan.txt C++ oleh Bjarne Stroustrup
+ * compile.cmd
+ * "bin/baju.exe" catatan.txt "C++ oleh Bjarne Stroustrup"
  */
 
 #include <iostream>
@@ -8,9 +8,9 @@
 
 int main(int argc, char *argv[]) {
 
-  std::ofstream output(
-    argc > 1 ? argv[1] : "bin/catatan_kosong.txt"
-  );
+  std::ofstream output("bin/" + std::string(
+    argc > 1 ? argv[1] : "catatan_kosong.txt"
+  ));
 
   for (int i = 2; i < argc; i++) {
     output << argv[i] << (i < argc - 1 ? " " : "");
